@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Colorful Screens</string>
+    <string name="redbuttontext">RED</string>
+    <string name="bluebuttontext">BLUE</string>
+    <string name="greenbuttontext">GREEN</string>
+    <string name="resetbuttontext">RESET</string>
+</resources>
