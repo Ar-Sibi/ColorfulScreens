@@ -5,79 +5,90 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/redb"
+    <SeekBar
+        android:id="@+id/greenbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:max="255"
+        android:progress="0" />
+
+    <SeekBar
+        android:id="@+id/redbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/greenbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:max="255"
+        android:progress="0" />
+
+    <SeekBar
+        android:id="@+id/bluebar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/greenbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:max="255"
+        android:progress="1" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
-        android:background="#ff0000"
-        android:onClick="redder"
-        android:text="@string/redbuttontext" />
-
-    <Button
-        android:id="@+id/greenb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/redb"
-        android:layout_centerVertical="true"
-        android:background="#00ff00"
-        android:onClick="greener"
-        android:text="@string/greenbuttontext" />
-
-    <Button
-        android:id="@+id/blueb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="41dp"
-        android:background="#0000ff"
-        android:onClick="bluer"
-        android:text="@string/bluebuttontext" />
+        android:text="@string/redbuttontext"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#ff0000" />
 
     <TextView
         android:id="@+id/redcount"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/redb"
-        android:layout_alignTop="@+id/redb"
-        android:layout_marginStart="55dp"
-        android:layout_toEndOf="@+id/redb"
-        android:gravity="center_vertical|center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/greencount"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/greencount"
+        android:layout_alignBottom="@+id/greencount"
+        android:layout_alignParentStart="true"
+        android:text="@string/greenbuttontext"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#00ff00" />
 
     <TextView
         android:id="@+id/greencount"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/greenb"
-        android:layout_alignEnd="@+id/redcount"
-        android:layout_alignStart="@+id/redcount"
-        android:layout_alignTop="@+id/greenb"
-        android:gravity="center_vertical|center_horizontal"
+        android:layout_alignTop="@+id/redbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <TextView
-        android:id="@+id/bluecount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/blueb"
-        android:layout_alignEnd="@+id/greencount"
-        android:layout_alignStart="@+id/greencount"
-        android:layout_alignTop="@+id/blueb"
-        android:gravity="center_vertical|center_horizontal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/bluecount"
+        android:text="@string/bluebuttontext"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#0000ff" />
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/bluecount"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/greencount"
-        android:layout_alignParentEnd="true"
-        android:background="#000000"
-        android:onClick="resetColors"
-        android:text="@string/resetbuttontext"
-        android:textColor="#ffffff" />
+        android:layout_below="@+id/greenbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 </RelativeLayout>

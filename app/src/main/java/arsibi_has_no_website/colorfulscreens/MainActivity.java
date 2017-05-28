@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,6 +52,63 @@ public class MainActivity extends AppCompatActivity {
         sharedPref = getPreferences(Context.MODE_PRIVATE);
         loadData();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        SeekBar redbar = (SeekBar)findViewById(R.id.redbar);
+        redbar.setProgress(red);
+        redbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                red=progress;
+                handler.sendEmptyMessage(1);
+                setBackground();
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+        SeekBar bluebar = (SeekBar)findViewById(R.id.bluebar);
+        bluebar.setProgress(blue);
+        bluebar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                blue=progress;
+                handler.sendEmptyMessage(3);
+                setBackground();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        SeekBar greenbar = (SeekBar)findViewById(R.id.greenbar);
+        greenbar.setProgress(green);
+        greenbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                green = progress;
+                handler.sendEmptyMessage(2);
+                setBackground();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -61,22 +119,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         loadData();
-    }
-
-    public void redder(View v) {
-        red=(red+1)%256;
-        setBackground();
-        handler.sendEmptyMessage(1);
-    }
-    public void greener(View v) {
-        green=(green+1)%256;
-        setBackground();
-        handler.sendEmptyMessage(2);
-    }
-    public void bluer(View v){
-        blue=(blue+1)%256;
-        setBackground();
-        handler.sendEmptyMessage(3);
     }
     public void resetColors(View v){
         blue=0;
