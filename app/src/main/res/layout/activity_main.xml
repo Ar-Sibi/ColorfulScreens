@@ -99,4 +99,16 @@
         android:layout_centerHorizontal="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/bluecount"
+        android:layout_below="@+id/bluebar"
+        android:layout_marginTop="52dp"
+        android:background="#000000"
+        android:onClick="resetColors"
+        android:text="@string/resetbuttontext"
+        android:textColor="#ffffff" />
+
 </RelativeLayout>

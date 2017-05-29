@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 handler.sendEmptyMessage(2);
                 setBackground();
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
@@ -124,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
         blue=0;
         red=0;
         green=0;
+        ((SeekBar)findViewById(R.id.redbar)).setProgress(red);
+        ((SeekBar)findViewById(R.id.greenbar)).setProgress(green);
+        ((SeekBar)findViewById(R.id.bluebar)).setProgress(blue);
         handler.sendEmptyMessage(1);
         handler.sendEmptyMessage(2);
         handler.sendEmptyMessage(3);
