@@ -9,25 +9,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     int red=0;
     int green=0;
     int blue=0;
+    TextView redText;
+    TextView blueText;
+    TextView greenText;
+    RelativeLayout RelLayout;
     SharedPreferences sharedPref ;
         public void handleChanges(int what) {
             switch (what) {
                 case 1:
-                    ((TextView)findViewById(R.id.redcount)).setText(String.format("%d",red));
+                    redText.setText(String.format("%d",red));
                     break;
                 case 2:
-                    ((TextView)findViewById(R.id.greencount)).setText(String.format("%d",green));
+                    greenText.setText(String.format("%d",green));
                     break;
                 case 3:
-                    ((TextView)findViewById(R.id.bluecount)).setText(String.format("%d",blue));
+                    blueText.setText(String.format("%d",blue));
                     break;
-
             }
         }
     @Override
@@ -35,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        RelLayout= (RelativeLayout)findViewById(R.id.rel_layout);
+        redText=(TextView)findViewById(R.id.redcount);
+        greenText=(TextView)findViewById(R.id.greencount);
+        blueText=(TextView)findViewById(R.id.bluecount);
         sharedPref = getPreferences(Context.MODE_PRIVATE);
         loadData();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -93,10 +101,10 @@ public class MainActivity extends AppCompatActivity {
         tmpr=(128+red)%256;
         tmpg=(128+green)%256;
         tmpb=(128+blue)%256;
-        findViewById(R.id.rel_layout).setBackgroundColor(Color.parseColor(colorString(red,green,blue)));
-        ((TextView)findViewById(R.id.redcount)).setTextColor(Color.parseColor(colorString(tmpr,tmpg,tmpb)));
-        ((TextView)findViewById(R.id.bluecount)).setTextColor(Color.parseColor(colorString(tmpr,tmpg,tmpb)));
-        ((TextView)findViewById(R.id.greencount)).setTextColor(Color.parseColor(colorString(tmpr,tmpg,tmpb)));
+        RelLayout.setBackgroundColor(Color.parseColor(colorString(red,green,blue)));
+        redText.setTextColor(Color.parseColor(colorString(tmpr,tmpg,tmpb)));
+        blueText.setTextColor(Color.parseColor(colorString(tmpr,tmpg,tmpb)));
+        greenText.setTextColor(Color.parseColor(colorString(tmpr,tmpg,tmpb)));
     }
     public void editData() {
         SharedPreferences.Editor editor = sharedPref.edit();
